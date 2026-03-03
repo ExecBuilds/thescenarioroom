@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: execbuilds/thescenarioroom
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Middle East", "Asia-Pacific", "Europe", "Americas", "Global Risk", "Supply Chain"] }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
