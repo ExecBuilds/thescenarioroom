@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scenario Room — Geopolitical Risk Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0D0D;
+    --paper: #F4F0E8;
+    --cream: #EDE8DC;
+    --red: #C0392B;
+    --red-dark: #922B21;
+    --gold: #B8860B;
+    --muted: #6B6560;
+    --rule: #C8C0B0;
+    --white: #FDFCF9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 0;
+    border-bottom: 3px double var(--gold);
+  }
+
+  .masthead-dateline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    padding: 10px 40px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .masthead-title {
+    padding: 28px 40px 20px;
+    border-bottom: 1px solid #333;
+  }
+
+  .masthead-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 88px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .masthead-title h1 span {
+    color: var(--red);
+  }
+
+  .masthead-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #999;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--ink);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 0 40px;
+  }
+
+  nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #AAA;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-right: 1px solid #222;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  nav a:first-child { border-left: 1px solid #222; }
+
+  nav a:hover {
+    color: var(--paper);
+    background: #1a1a1a;
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--red);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 40s linear infinite;
+  }
+
+  .ticker-inner span { margin: 0 40px; }
+  .ticker-inner span::before { content: "◆  "; }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 40px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .hero-main {
+    padding-right: 40px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .hero-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .hero-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #3a3530;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 2px solid var(--ink);
+    transition: all 0.2s;
+  }
+
+  .hero-cta:hover {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 2px solid var(--ink);
+    margin-left: 12px;
+    transition: all 0.2s;
+  }
+
+  .hero-cta-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .hero-sidebar {
+    padding-left: 32px;
+  }
+
+  .sidebar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-stat {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-stat:last-child { border-bottom: none; }
+
+  .sidebar-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .sidebar-stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .sidebar-stat-desc {
+    font-size: 13px;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+    margin-bottom: 32px;
+  }
+
+  .section-header h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .section-header-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── ARTICLES GRID ── */
+  .articles-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .article-card {
+    padding: 32px 28px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .article-card:last-child { border-right: none; }
+  .article-card:hover { background: var(--cream); }
+
+  .article-region {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  .article-excerpt {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .article-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #AAA;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+
+  .read-more {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .read-more::after { content: " →"; }
+
+  /* ── FEATURED ARTICLE ── */
+  .featured {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .featured-main {
+    padding-right: 0;
+  }
+
+  .featured-label {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  .featured-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .featured-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #3a3530;
+    margin-bottom: 28px;
+  }
+
+  .featured-body p { margin-bottom: 16px; }
+
+  .featured-sidebar {
+    border-left: 3px solid var(--ink);
+    padding-left: 32px;
+  }
+
+  .pullquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .scenario-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .scenario-box-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .scenario-box-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .scenario-box-prob {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--red);
+  }
+
+  .scenario-box-desc {
+    font-size: 13px;
+    color: #CCC;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 40px;
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .services-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+
+  .services-header p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: #888;
+    text-transform: uppercase;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid #333;
+  }
+
+  .service-card {
+    padding: 40px 32px;
+    border-right: 1px solid #333;
+    position: relative;
+  }
+
+  .service-card:last-child { border-right: none; }
+
+  .service-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: #222;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .service-price {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: #AAA;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .service-includes {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .service-includes li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #888;
+    padding: 8px 0;
+    border-bottom: 1px solid #222;
+    letter-spacing: 0.05em;
+  }
+
+  .service-includes li::before {
+    content: "→  ";
+    color: var(--red);
+  }
+
+  .service-btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid #555;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .service-btn:hover, .service-btn.primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+  }
+
+  /* ── LEAD GEN FORM ── */
+  .lead-gen {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .lead-gen-copy h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .lead-gen-copy h2 em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .lead-gen-copy p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .lead-gen-proof {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .proof-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: var(--cream);
+    border-left: 3px solid var(--red);
+  }
+
+  .proof-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .proof-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .proof-text strong {
+    color: var(--ink);
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* Form */
+  .form-container {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 40px;
+  }
+
+  .form-header {
+    margin-bottom: 32px;
+  }
+
+  .form-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .form-header p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top-color: #AAA;
+    color: var(--ink);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--ink);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { background: var(--red); }
+
+  .form-privacy {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #BBB;
+    text-align: center;
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 40px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-photo {
+    width: 280px;
+    height: 320px;
+    background: var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-photo-placeholder {
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .about-photo-placeholder div {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .about-photo-placeholder p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #3a3530;
+    margin-bottom: 20px;
+  }
+
+  .about-credentials {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .credential {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .credential::before {
+    content: "■  ";
+    color: var(--red);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #666;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--paper);
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 24px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .footer-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--paper); }
+
+  .footer-rule {
+    height: 1px;
+    background: #222;
+    margin: 24px 0;
+  }
+
+  .footer-copy {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #444;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-kicker { animation: fadeUp 0.5s ease forwards; }
+  .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-body { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero, .featured, .lead-gen, .about-inner {
+      grid-template-columns: 1fr;
+    }
+    .hero-main { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 32px; margin-bottom: 32px; }
+    .hero-sidebar { padding-left: 0; }
+    .articles-grid, .services-grid { grid-template-columns: 1fr; }
+    .article-card, .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .about-photo { width: 100%; height: 240px; }
+    .featured-sidebar { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 32px; }
+    .form-grid { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; }
+    .masthead-dateline { flex-direction: column; gap: 4px; text-align: center; }
+    .about-credentials { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-dateline">
+    <span>GEOPOLITICAL RISK INTELLIGENCE FOR BUSINESS LEADERS</span>
+    <span id="date-display">MONDAY, MARCH 2, 2026</span>
+    <span>EST. 2026  ·  NORWICH, CT</span>
+  </div>
+  <div class="masthead-title">
+    <h1>THE SCENARIO <span>ROOM</span></h1>
+    <p class="masthead-tagline">Scenario Analysis  ·  Risk Intelligence  ·  Business Strategy</p>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#articles">Intelligence</a>
+  <a href="#featured">Analysis</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#contact">Request Briefing</a>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Taiwan Strait tensions rise as naval exercises extend into third week</span>
+    <span>EU member states split on new Russia sanctions package</span>
+    <span>Red Sea shipping costs up 340% since Houthi escalation</span>
+    <span>OPEC+ emergency meeting called amid Gulf instability</span>
+    <span>South China Sea: three new territorial incidents logged this month</span>
+    <span>Taiwan Strait tensions rise as naval exercises extend into third week</span>
+    <span>EU member states split on new Russia sanctions package</span>
+    <span>Red Sea shipping costs up 340% since Houthi escalation</span>
+    <span>OPEC+ emergency meeting called amid Gulf instability</span>
+    <span>South China Sea: three new territorial incidents logged this month</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <p class="hero-kicker">Intelligence Briefing — March 2026</p>
+    <h2 class="hero-headline">The world doesn't stop.<br>Neither does <em>your exposure.</em></h2>
+    <p class="hero-body">The Scenario Room delivers institutional-grade geopolitical risk intelligence to the business leaders who need it most — and have never had access to it. We translate global complexity into clear scenarios, probabilities, and decisions your business can act on.</p>
+    <a href="#contact" class="hero-cta">Request a Free Risk Assessment</a>
+    <a href="#articles" class="hero-cta-secondary">Read Latest Analysis</a>
+  </div>
+  <div class="hero-sidebar">
+    <div class="sidebar-label">Why It Matters Now</div>
+    <div class="sidebar-stat">
+      <div class="sidebar-stat-number">73%</div>
+      <div class="sidebar-stat-label">of SMBs have no formal geopolitical risk process</div>
+      <div class="sidebar-stat-desc">Yet 60% source materials, sell into, or finance operations in geopolitically exposed regions.</div>
+    </div>
+    <div class="sidebar-stat">
+      <div class="sidebar-stat-number">$500K</div>
+      <div class="sidebar-stat-label">average cost of one bad geopolitical bet for a mid-market firm</div>
+      <div class="sidebar-stat-desc">Wrong inventory position. Wrong market entry timing. Wrong supplier geography.</div>
+    </div>
+    <div class="sidebar-stat">
+      <div class="sidebar-stat-number">48hr</div>
+      <div class="sidebar-stat-label">average scenario report turnaround</div>
+      <div class="sidebar-stat-desc">From discovery call to actionable intelligence in your hands.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES SECTION HEADER -->
+<div class="section-header" id="articles">
+  <div class="section-header-rule"></div>
+  <h2>Latest Intelligence</h2>
+  <div class="section-header-rule"></div>
+</div>
+
+<!-- ARTICLES GRID -->
+<div class="articles-grid">
+  <div class="article-card">
+    <div class="article-region">Asia-Pacific</div>
+    <h3 class="article-title">Three Scenarios for the Taiwan Strait in 2026 — And What Importers Should Know</h3>
+    <p class="article-excerpt">Naval exercises have extended beyond their announced window for the third consecutive quarter. We model the probability and business implications of three distinct escalation paths.</p>
+    <div class="article-meta">
+      <span>MARCH 2026</span>
+      <a href="#" class="read-more">Read Analysis</a>
+    </div>
+  </div>
+  <div class="article-card">
+    <div class="article-region">Middle East</div>
+    <h3 class="article-title">Red Sea Disruption: Is This the New Normal for Global Shipping?</h3>
+    <p class="article-excerpt">Freight costs are up 340% on key lanes. We examine whether this represents a temporary disruption or a permanent restructuring of global logistics — and what your supply chain strategy should look like in either case.</p>
+    <div class="article-meta">
+      <span>FEBRUARY 2026</span>
+      <a href="#" class="read-more">Read Analysis</a>
+    </div>
+  </div>
+  <div class="article-card">
+    <div class="article-region">Europe</div>
+    <h3 class="article-title">How the Russia-Ukraine Conflict Is Quietly Reshaping European Energy Costs</h3>
+    <p class="article-excerpt">The headline conflict has faded from front pages, but the structural energy shifts it triggered are accelerating. Three scenarios for European energy pricing through 2027.</p>
+    <div class="article-meta">
+      <span>FEBRUARY 2026</span>
+      <a href="#" class="read-more">Read Analysis</a>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED ANALYSIS -->
+<div class="section-header" id="featured">
+  <div class="section-header-rule"></div>
+  <h2>Featured Analysis</h2>
+  <div class="section-header-rule"></div>
+</div>
+
+<section class="featured">
+  <div class="featured-main">
+    <span class="featured-label">In-Depth Scenario Analysis</span>
+    <h2 class="featured-headline">Five Geopolitical Triggers That Could Derail Your 2026 Growth Plan</h2>
+    <div class="featured-body">
+      <p>Most business planning models treat geopolitical risk as a footnote — a qualitative caveat buried in the appendix. This is a mistake that cost mid-market companies an estimated $340 billion in 2025 alone.</p>
+      <p>The Scenario Room has identified five specific trigger points that carry the highest probability of materially impacting business operations in North America, Europe, and Asia-Pacific over the next 12 months. For each, we model three scenarios, assign probability weightings, and identify the early warning signals your team should monitor.</p>
+      <p>This is not commentary. It is structured intelligence — the same analytical framework used by institutional risk desks, applied to the scale and concerns of the businesses that actually need it most.</p>
+    </div>
+    <a href="#contact" class="hero-cta">Get the Full Briefing</a>
+  </div>
+  <div class="featured-sidebar">
+    <div class="pullquote">"The question isn't whether geopolitics will affect your business. It's whether you'll see it coming."</div>
+    <div class="scenario-box">
+      <div class="scenario-box-label">Scenario A — Status Quo Persists</div>
+      <div class="scenario-box-title">Managed Tension</div>
+      <div class="scenario-box-prob">45%</div>
+      <div class="scenario-box-desc">Current friction points remain elevated but contained. Supply chain pressure continues; no acute shock.</div>
+    </div>
+    <div class="scenario-box">
+      <div class="scenario-box-label">Scenario B — Controlled Escalation</div>
+      <div class="scenario-box-title">Regional Disruption</div>
+      <div class="scenario-box-prob">35%</div>
+      <div class="scenario-box-desc">One or more flashpoints escalate beyond current bounds, triggering targeted supply and financial disruptions.</div>
+    </div>
+    <div class="scenario-box">
+      <div class="scenario-box-label">Scenario C — Acute Crisis</div>
+      <div class="scenario-box-title">Black Swan Event</div>
+      <div class="scenario-box-prob">20%</div>
+      <div class="scenario-box-desc">A rapid, unexpected escalation forces immediate operational and financial response across exposed businesses.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <h2>Intelligence Services</h2>
+      <p>Three ways to work with The Scenario Room</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-name">Free Intelligence</div>
+        <div class="service-price">No Cost · Public Access</div>
+        <p class="service-desc">Weekly scenario analysis articles covering the geopolitical events most likely to affect business operations. Accessible to all — no subscription required.</p>
+        <ul class="service-includes">
+          <li>Weekly scenario analysis articles</li>
+          <li>Regional risk briefings</li>
+          <li>Early warning indicator tracking</li>
+          <li>Business implications summaries</li>
+        </ul>
+        <a href="#articles" class="service-btn">Read Latest Analysis</a>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-name">Scenario Report</div>
+        <div class="service-price">$1,500 · Per Report</div>
+        <p class="service-desc">A custom 8-page scenario analysis built around your specific business exposure. Three scenarios, probability weightings, and a mitigation playbook — in 48 hours.</p>
+        <ul class="service-includes">
+          <li>20-min discovery call</li>
+          <li>8-page scenario report</li>
+          <li>3 scenarios with probabilities</li>
+          <li>Early warning signals</li>
+          <li>Mitigation playbook</li>
+          <li>30-min debrief call</li>
+        </ul>
+        <a href="#contact" class="service-btn primary">Request a Report</a>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-name">Monthly Retainer</div>
+        <div class="service-price">$2,000 / Month</div>
+        <p class="service-desc">Your outsourced geopolitical risk desk. Ongoing monitoring of your specific exposure, monthly scenario updates, and direct access when situations develop.</p>
+        <ul class="service-includes">
+          <li>Monthly scenario report update</li>
+          <li>Weekly risk digest (your exposure)</li>
+          <li>Direct email access</li>
+          <li>Quarterly strategic review call</li>
+          <li>Ad hoc briefings on breaking events</li>
+          <li>Board-ready risk summaries</li>
+        </ul>
+        <a href="#contact" class="service-btn">Enquire About Retainer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD GEN FORM -->
+<section class="lead-gen" id="contact">
+  <div class="lead-gen-copy">
+    <h2>What's your <em>actual</em> geopolitical exposure?</h2>
+    <p>Most business leaders don't know until it's too late. A free 20-minute assessment call will tell you exactly which risks matter for your business — and which ones you can ignore.</p>
+    <div class="lead-gen-proof">
+      <div class="proof-item">
+        <div class="proof-icon">⚡</div>
+        <div class="proof-text">
+          <strong>48-Hour Turnaround</strong>
+          Full scenario reports delivered within two business days of your call.
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">🎯</div>
+        <div class="proof-text">
+          <strong>Business-Specific Intelligence</strong>
+          No generic global commentary. Analysis built around your industry, your geography, your supply chain.
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">🔒</div>
+        <div class="proof-text">
+          <strong>Fully Confidential</strong>
+          All client work is conducted under strict confidentiality. Your exposure data stays in The Scenario Room.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <div class="form-header">
+      <h3>Request a Free Assessment</h3>
+      <p>Response within 24 hours</p>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="bot-field" style="display:none">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="first-name" placeholder="James" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="last-name" placeholder="Morrison" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Work Email</label>
+        <input type="email" name="email" placeholder="james@company.com" required>
+      </div>
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" name="company" placeholder="Acme Industries" required>
+      </div>
+      <div class="form-group">
+        <label>Industry</label>
+        <select name="industry" required>
+          <option value="" disabled selected>Select your industry</option>
+          <option>Finance & Investment</option>
+          <option>Manufacturing</option>
+          <option>Technology</option>
+          <option>Logistics & Supply Chain</option>
+          <option>Energy</option>
+          <option>Retail & Consumer Goods</option>
+          <option>Healthcare & Pharma</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Biggest Geopolitical Concern Right Now</label>
+        <textarea name="concern" placeholder="e.g. We source 60% of components from Taiwan and are worried about escalation risk..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>What Would Be Most Useful?</label>
+        <select name="interest">
+          <option>Free weekly article digest</option>
+          <option>One-time scenario report ($1,500)</option>
+          <option>Monthly retainer ($2,000/mo)</option>
+          <option>Not sure — just want the assessment</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">Request Free Assessment →</button>
+      <p class="form-privacy">Your information is confidential and never shared.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <div class="about-photo-placeholder">
+        <div>👤</div>
+        <p>Add Your Photo</p>
+      </div>
+    </div>
+    <div class="about-content">
+      <h2>About The Scenario Room</h2>
+      <p>The Scenario Room was founded on a simple premise: the geopolitical intelligence that drives decisions at the world's largest institutions should be accessible to the business leaders who need it most — not just the ones who can afford a $40,000-a-year terminal.</p>
+      <p>We work with supply chain executives, CFOs, and operations leaders at mid-market companies who have real international exposure but no dedicated risk desk. We help them see around corners, plan for multiple futures, and make decisions with confidence.</p>
+      <p>Our methodology draws on structured scenario planning frameworks used by intelligence professionals, applied with the business pragmatism that comes from working directly with the operators who have to act on the analysis.</p>
+      <div class="about-credentials">
+        <span class="credential">Geopolitical Analysis</span>
+        <span class="credential">Scenario Planning</span>
+        <span class="credential">Risk Intelligence</span>
+        <span class="credential">Business Strategy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">THE SCENARIO <span>ROOM</span></div>
+    <div class="footer-tagline">Geopolitical Risk Intelligence for Business Leaders</div>
+    <div class="footer-links">
+      <a href="#articles">Intelligence</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#1b737e7777745b6f737e68787e757a6972746974747635787476"><span class="__cf_email__" data-cfemail="ec8489808083ac9884899f8f89828d9e85839e838381c28f8381">[email&#160;protected]</span></a>
+    </div>
+    <div class="footer-rule"></div>
+    <div class="footer-copy">© 2026 The Scenario Room. All rights reserved. All analysis is provided for informational purposes only.</div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Update date
+  const d = new Date();
+  const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+  const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+  document.getElementById('date-display').textContent = `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Request Received — We\'ll Be In Touch Within 24 Hours';
+    btn.style.background = '#2ECC71';
+    btn.disabled = true;
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.article-card, .serv
