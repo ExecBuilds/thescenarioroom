@@ -1,7 +1,9 @@
 backend:
-  name: github
+  name: git-gateway
   repo: execbuilds/thescenarioroom
   branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR-SITE-ID  # from DecapBridge dashboard
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "images"
 public_folder: "images"
